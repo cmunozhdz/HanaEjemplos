@@ -34,6 +34,18 @@ public class ClienteHana {
 				
 				System.out.println("Conexion establecida");
 				Statement Stmt =connection.createStatement();
+				
+				
+                System.out.println("USER_NAME\tUSER_ID\tUSERGROUP_NAME" );
+                
+                //Stmt = connection.createStatement();
+                ResultSet resultSet = Stmt.executeQuery("SELECT * from SCHEMAS;");
+                while (resultSet.next()) {
+                    String title = resultSet.getString(1);
+                    String firstName = resultSet.getString(2);
+                    String lastName = resultSet.getString(3);
+                    System.out.println(title + "\t" + firstName + "\t" + lastName);
+                }
 				ResultSet Rst = Stmt.executeQuery("Select * from CFDI");
 				
 				while ( Rst.next() ) {
@@ -42,7 +54,7 @@ public class ClienteHana {
 					System.out.println("RFC:" + Rst.getString(2));
 					System.out.println("Emisor:" + Rst.getString(3));
 				}
-						
+	
 				return;
 			}
 			catch (Exception e) {
