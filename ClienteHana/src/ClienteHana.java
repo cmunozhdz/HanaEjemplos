@@ -11,13 +11,13 @@ public class ClienteHana {
 		Connection connection =null;
 		try {	
 			//1f3a4df5-3630-46ab-a410-ad0562f9b40d
-			String SchemasName;
+			String SchemasName="&currentSchema=PWP";
 			System.out.println("Conectando a Hana");
 			//Agregamos la conexion al schema.
 			String ServerConnection= "1f3a4df5-3630-46ab-a410-ad0562f9b40d.hana.trial-us10.hanacloud.ondemand.com:443";	
 			String Usuario= "DBADMIN";
 			String Password = "Kl3m3n73$$";
-			String JdbConnection = "jdbc:sap://" + ServerConnection + "?encrypt=true&validateCertificate=false&currentSchema=PWP" ; 		
+			String JdbConnection = "jdbc:sap://" + ServerConnection + "?encrypt=true&validateCertificate=false" +SchemasName ; 		
 			connection = DriverManager.getConnection(JdbConnection,Usuario,Password);                
 			
 			
